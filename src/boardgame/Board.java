@@ -28,14 +28,14 @@ public class Board {
 		if(!positionExists(row, column)) {
 			throw new BoardException("Esta posição está fora do tabuleiro!");
 		}
-		return pieces[row][column];
+		return this.pieces[row][column];
 	}
 	
 	public Piece piece(Position position) {
 		if(!positionExists(position)) {
 			throw new BoardException("Esta posição está fora do tabuleiro!");
 		}
-		return pieces[position.getRow()][position.getColumn()];
+		return this.pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position) {
