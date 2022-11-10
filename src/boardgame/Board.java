@@ -38,12 +38,27 @@ public class Board {
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
-	public void placePeace(Piece piece, Position position) {
+	public void placePiece(Piece piece, Position position) {
 		if(this.thereIsAPiece(position)) {
 			throw new BoardException("Já existe uma peça na posição " + position + "!");
 		}
 		this.pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
+	}
+	
+	public Piece removePiece(Position position) {
+		if(!this.positionExists(position)) {
+			throw new BoardException("Esta posição está fora do tabuleiro!"); 
+		}
+		
+		if(this.piece(position) == null) {
+			return null;
+		}
+		
+		Piece aux = this.piece(position);
+		aux.position = null;
+		this.pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
 	}
 	
 	public boolean positionExists(int row, int column) {
