@@ -58,8 +58,12 @@ public class UI {
 		System.out.println();
 		printCapturedPieces(captured);
 		System.out.println();
+		System.out.println();
 		System.out.println("Rodada: " + chessMatch.getTurn());
 		System.out.println("Esperando o jogador: " + chessMatch.getcurrentPlayer());
+		if (chessMatch.getCheck()) {
+			System.out.println("CHECK!");
+		}
 	}
 
 	public static void printBoard(ChessPiece[][] pieces) {
